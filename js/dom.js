@@ -33,12 +33,29 @@
 //mypara.classList.add("x");
 //mypara.classList.toggle("y");
 
-let firstpara=document.querySelector("#firstpara");
-firstpara.addEventListener("click",test);
+// let firstpara=document.querySelector("#firstpara");
+// firstpara.addEventListener("click",test);
 
-function test()
-{
-    console.log("Para clicked");
+// let btn=document.querySelector("#btn");
+// btn.addEventListener("click",test)
+// function test()
+// {
+//     console.log("clicked");
 
-}
+// }
 
+
+// let btn=document.querySelector("#btn");
+// btn.addEventListener("click",test)
+
+// let btn1=document.querySelector("#btn1");
+// btn1.addEventListener("click",test)
+
+// function test(e)
+// {
+//     console.log(e.target);
+
+//    // if(e.target==btn)
+//      //   console.log
+//     //console.log("Called",e)
+// }
