@@ -84,6 +84,7 @@ taskname.addEventListener("keypress", function (e) {
         obj.taskid = id;
         id++;
         tasks.push(obj);
+        setLocalStorage();
         addDom(obj)
         //addtoDom();
         taskname.value = "";
@@ -148,6 +149,7 @@ function addDom(task) {
             return item;
 
         })
+        setLocalStorage();
         console.log(tasks);
         
 
@@ -157,12 +159,63 @@ function addDom(task) {
 
     })
 
+    let delbtn=document.createElement("button");
+    delbtn.innerText="Del";
+    delbtn.addEventListener("click",function(){
+        
+        taskdiv.remove();
+        tasks=tasks.filter(function(item){
+            if(item.taskid!=task.taskid)
+                return true;
 
+        })
+        setLocalStorage();
+        console.log(tasks);
+
+    })
     taskdiv.append(span);
     taskdiv.append(chk);
+    taskdiv.append(delbtn);
 
     taskList.append(taskdiv);
 
 
 
 }
+
+
+function setLocalStorage()
+{
+    localStorage.setItem("tasks",JSON.stringify(tasks));
+
+    //let arr=["one","Two"];
+    //document.write(arr);
+    //localStorage.setItem("items",arr);
+   
+//     let obj={};
+//     obj.title="Test";
+//     let arr=[];
+//     arr.push(obj)
+//    // document.write(JSON.stringify( obj));
+//     localStorage.setItem("items",JSON.stringify(arr));
+
+//     let items=JSON.parse(localStorage.getItem("items"));
+//     console.log(items[0]);
+
+    //localStorage.setItem("name","Code");
+
+}
+function getLocalStorage()
+{
+    if(localStorage.getItem("tasks"))
+    tasks=JSON.parse(localStorage.getItem("tasks"));
+
+    tasks.forEach(function(element) {
+        addDom(element);
+
+        
+    });
+    console.log(tasks);
+
+}
+getLocalStorage();
