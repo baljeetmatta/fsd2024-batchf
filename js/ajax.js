@@ -44,3 +44,46 @@
 // obj.name="Code";
 // obj.job="Trainer";
 // request.send(JSON.stringify(obj));
+// let no=11;
+// let prom=new Promise((resolve,reject)=>{
+
+//     if(no%2==0)
+//         resolve();
+//     else
+//     reject();
+
+// })
+// let p=prom.then(()=>{
+//     console.log("Even")
+// }).catch(()=>{
+//     console.log("ODD");
+// })
+// console.log(p);
+//fetch(URL,options)
+// 
+// fetch("https://reqres.in/api/users?page=1")
+// .then((response)=>{return response.json()})
+// .then((response)=>{console.log(response)});
+// let obj={};
+// obj.name="COde";
+// obj.job="Trainer";
+
+// fetch("https://reqres.in/api/users",{
+//     method:"POST",
+//     body:JSON.stringify(obj),
+//     headers:{
+//         "content-type":"application/json"
+//     }
+// }).then((response)=>{return response.json()})
+// .then((response)=>{
+//     console.log(response)
+// })
+async function getData()
+{
+    let response=await fetch("https://reqres.in/api/users?page=1")
+    let output=await response.json();
+    console.log(output);
+
+}
+getData();
+console.log("Hello");
